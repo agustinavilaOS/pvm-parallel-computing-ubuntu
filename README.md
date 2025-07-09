@@ -1,16 +1,18 @@
 ---
 
-# Manual de Instalación y Ejecución de PVM en Ubuntu 18.04
+# 🚀 Manual de Instalación y Ejecución de PVM en Ubuntu 18.04
 
-Este manual proporciona una guía paso a paso para instalar y configurar PVM (Parallel Virtual Machine) en un sistema Ubuntu 18.04. Además, se incluye un ejemplo de código que utiliza PVM para ejecutar tareas paralelas.
+¿Te imaginas potenciar tu capacidad de cómputo, distribuyendo tareas complejas y acelerando procesos en tu propio clúster?
+Con **PVM (Parallel Virtual Machine)** puedes aprovechar el poder del paralelismo en Ubuntu 18.04 de forma sencilla, profesional y escalable.
+Sigue esta guía paso a paso y prepárate para transformar tu flujo de trabajo con computación distribuida real.
 
 ---
 
-## 1. Instalación de PVM en Ubuntu 18.04
+## 1️⃣ Instalación de PVM en Ubuntu 18.04
 
 ### 1.1. Instalación de Paquetes Necesarios
 
-Para comenzar, abre una terminal en tu sistema Ubuntu y ejecuta los siguientes comandos para instalar los paquetes necesarios:
+Convierte tu Ubuntu en un entorno preparado para la computación paralela instalando estos paquetes esenciales. ¡Listo para experimentar la eficiencia de PVM desde la terminal!
 
 ```bash
 sudo apt install pvm pvm-dev
@@ -19,7 +21,7 @@ sudo apt install pvm pvm-dev
 * `pvm`: Instala la biblioteca y las herramientas necesarias para usar PVM.
 * `pvm-dev`: Instala las bibliotecas de desarrollo de PVM.
 
-A continuación, instala otros paquetes que pueden ser útiles:
+Completa el entorno agregando herramientas de compilación modernas para desarrollo profesional:
 
 ```bash
 sudo apt install build-essential -y
@@ -27,9 +29,11 @@ sudo apt install build-essential -y
 
 * `build-essential`: Instala herramientas básicas para la compilación de programas en C, como gcc, make, etc.
 
+---
+
 ### 1.2. Creación de Directorios
 
-Crea los directorios donde se almacenarán los archivos de PVM y el proyecto. Ejecuta los siguientes comandos:
+Organiza tu proyecto desde el inicio, separando ejecutables y código fuente como lo hacen los equipos profesionales. Así, tu flujo de trabajo será mucho más eficiente:
 
 ```bash
 mkdir -p $HOME/pvm3/bin/LINUX
@@ -39,9 +43,11 @@ mkdir -p $HOME/proyecto_pvm
 * `$HOME/pvm3/bin/LINUX`: Directorio donde se almacenarán los ejecutables de PVM.
 * `$HOME/proyecto_pvm`: Directorio donde almacenarás el código fuente del proyecto.
 
+---
+
 ### 1.3. Navegar al Directorio del Proyecto
 
-Accede al directorio del proyecto que acabas de crear:
+Colócate en tu espacio de trabajo y prepárate para desarrollar y ejecutar tus aplicaciones distribuidas:
 
 ```bash
 cd $HOME/proyecto_pvm
@@ -49,13 +55,17 @@ cd $HOME/proyecto_pvm
 
 ---
 
-## 2. Creación de Archivos de Código
+## 2️⃣ Creación de Archivos de Código
 
-En este paso, crearás los archivos de código necesarios para el programa PVM.
+¿Listo para comenzar a programar y orquestar procesos en paralelo?
+En esta sección crearás los archivos clave de tu solución basada en PVM.
+
+---
 
 ### 2.1. Crear el Archivo `master.c`
 
-Abre un editor de texto para crear el archivo master.c:
+Lidera tu clúster con el proceso maestro:
+Abre un editor y comienza a construir la lógica central de tu solución distribuida.
 
 ```bash
 nano master.c
@@ -120,9 +130,12 @@ int main(int argc, char *argv[]) {
 }
 ```
 
+---
+
 ### 2.2. Crear el Archivo `slave.c`
 
-Ahora, crea el archivo slave.c para el proceso esclavo:
+Ahora, configura el “motor” de cálculo que responde al maestro.
+Este proceso esclavo ejecutará los trabajos en paralelo y enviará los resultados automáticamente.
 
 ```bash
 nano slave.c
@@ -166,9 +179,11 @@ int main() {
 }
 ```
 
+---
+
 ### 2.3. Crear el Archivo `Makefile`
 
-A continuación, crea un archivo Makefile para facilitar la compilación de los programas. Abre el editor de texto y crea el archivo:
+Agiliza tu desarrollo y compila todo tu proyecto con un solo comando, como lo hacen los equipos profesionales de software.
 
 ```bash
 nano Makefile
@@ -198,13 +213,18 @@ clean:
 
 ---
 
-## 3. Compilación del Proyecto
+## 3️⃣ Compilación del Proyecto
 
-Para compilar el proyecto de PVM, utilizaremos el archivo Makefile que acabamos de crear. Este archivo contiene las instrucciones necesarias para compilar los archivos fuente (`master.c` y `slave.c`) y generar los ejecutables correspondientes.
+Haz que tu proyecto cobre vida con una compilación simple, rápida y confiable.
+Usa make y olvídate de compilar archivo por archivo.
+
+---
 
 ### 3.1. ¿Por qué usar `make`?
 
-`make` es una herramienta de automatización de compilación que facilita el proceso de compilar programas. En lugar de ejecutar manualmente los comandos de compilación para cada archivo, `make` lee las reglas definidas en el archivo Makefile y compila todo automáticamente. Esto simplifica la gestión de dependencias y reduce los errores.
+`make` es la herramienta que todo desarrollador moderno debe dominar: automatiza la compilación, gestiona dependencias y evita errores manuales. ¡Ahorra tiempo y gana robustez!
+
+---
 
 ### 3.2. Pasos para Compilar
 
@@ -218,7 +238,7 @@ cd $HOME/proyecto_pvm
 
 #### Ejecuta make para compilar
 
-Ejecuta el siguiente comando para compilar el proyecto:
+Lanza el proceso de compilación con un solo comando:
 
 ```bash
 make
@@ -228,7 +248,7 @@ Este comando hará que `make` lea el archivo Makefile y compile los archivos mas
 
 #### Verifica los Archivos Generados
 
-Si la compilación es exitosa, deberías ver los ejecutables `master` y `slave` en el directorio actual. Verifica que los archivos hayan sido creados con:
+Confirma que tienes tus ejecutables listos para usar:
 
 ```bash
 ls
@@ -236,7 +256,7 @@ ls
 
 #### Copiar archivos a entorno PVM
 
-Copia el archivo `slave` al directorio adecuado dentro del entorno PVM:
+Ubica el ejecutable esclavo donde lo requiere el entorno de PVM para una ejecución transparente:
 
 ```bash
 cp slave $HOME/pvm3/bin/LINUX/
@@ -244,7 +264,8 @@ cp slave $HOME/pvm3/bin/LINUX/
 
 #### Limpiar Archivos Generados (Opcional)
 
-Si deseas eliminar los archivos generados, como los ejecutables y los archivos objeto, puedes ejecutar:
+¿Quieres dejar tu proyecto limpio y profesional?
+Elimina archivos temporales y ejecutables fácilmente:
 
 ```bash
 make clean
@@ -252,9 +273,11 @@ make clean
 
 ---
 
-## 4. Ejecución del Proyecto
+## 4️⃣ Ejecución del Proyecto
 
-Una vez compilado el proyecto, sigue estos pasos para ejecutarlo correctamente.
+¡Momento de la verdad! Ejecuta tu sistema paralelo y comprueba el poder de PVM en acción.
+
+---
 
 ### 4.1. Iniciar PVM
 
@@ -264,7 +287,7 @@ Abre una nueva terminal en tu sistema (puedes buscar “Terminal” en el menú 
 
 #### Crear el Archivo de Hosts de PVM
 
-Crea el archivo de hosts para PVM con el siguiente comando:
+Prepara el entorno para reconocer tu máquina como nodo de ejecución:
 
 ```bash
 echo 'localhost' > $HOME/pvm3/hostfile
@@ -272,7 +295,7 @@ echo 'localhost' > $HOME/pvm3/hostfile
 
 #### Iniciar PVM
 
-En la nueva terminal, inicia el entorno de PVM con el siguiente comando:
+Arranca el entorno de PVM y comienza a gestionar tareas distribuidas:
 
 ```bash
 pvm
@@ -280,11 +303,13 @@ pvm
 
 #### Añadir localhost al Host de PVM
 
-Para que PVM pueda utilizar tu máquina local como nodo, agrega localhost al archivo de hosts de PVM:
+Haz disponible tu propia máquina para recibir trabajos en paralelo:
 
 ```bash
 add localhost
 ```
+
+---
 
 ### 4.2. Ejecutar el Programa Maestro
 
@@ -298,7 +323,7 @@ cd $HOME/proyecto_pvm
 
 #### Ejecutar el programa maestro con rango
 
-Ejecuta el programa maestro indicando el rango de números que quieres sumar. Por ejemplo, para sumar números del 1 al 10:
+Inicia tu primer procesamiento paralelo real ejecutando el maestro con los parámetros que desees:
 
 ```bash
 ./master 1 10
@@ -315,8 +340,14 @@ Maestro: suma recibida = 55
 
 ---
 
-## 5. Conclusión
+## 5️⃣ Conclusión
 
-Con este manual, has instalado, compilado y ejecutado un programa simple usando PVM en Ubuntu 18.04. Puedes modificar los códigos para implementar tareas paralelas más complejas usando PVM.
+¡Felicidades! Has montado, compilado y ejecutado tu propio sistema de computación paralela con PVM en Ubuntu.
+Con esta base, puedes escalar tus soluciones, optimizar tiempos de procesamiento y enfrentarte a retos de alto rendimiento como los profesionales de la industria.
+
+---
+
+¿Listo para llevar tu desarrollo al siguiente nivel?
+**Con PVM y Ubuntu, la computación distribuida está en tus manos.**
 
 ---
